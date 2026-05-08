@@ -1,0 +1,451 @@
+# Trump-Xi-Beijing
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>川習會 · Trump–Xi Beijing Summit · May 14–15, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Serif+TC:wght@400;700;900&family=Source+Sans+3:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ─── CSS VARIABLES ─── */
+  :root {
+    --navy:        #050d1f;
+    --navy-mid:    #0a1a35;
+    --navy-light:  #0f2650;
+    --yellow:      #ffd700;
+    --yellow-glow: #ffe44d;
+    --pink:        #ff4d9e;
+    --sky:         #00cfff;
+    --green:       #39ff8f;
+    --white:       #f0f4ff;
+    --dim:         rgba(255,255,255,0.55);
+    --border:      rgba(255,215,0,0.25);
+    --card-bg:     rgba(10,26,53,0.85);
+    --red-cn:      #de2910;
+    --red-us:      #b22234;
+    --star-us:     #3c3b6e;
+  }
+
+  /* ─── RESET & BASE ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--navy);
+    color: var(--white);
+    font-family: 'Source Sans 3', 'Noto Serif TC', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── STARFIELD BACKGROUND ─── */
+  body::before {
+    content: '';
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(0,100,255,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(255,215,0,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(255,77,158,0.05) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+    animation: bgPulse 12s ease-in-out infinite alternate;
+  }
+  @keyframes bgPulse {
+    0%   { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+
+  /* ─── TICKER (跑馬燈) ─── */
+  .ticker-wrap {
+    position: sticky; top: 0; z-index: 999;
+    background: linear-gradient(90deg, #0a0a1a, #0d1a3a, #0a0a1a);
+    border-bottom: 2px solid var(--yellow);
+    overflow: hidden;
+    padding: 8px 0;
+    box-shadow: 0 4px 30px rgba(255,215,0,0.2);
+  }
+  .ticker-label {
+    display: inline-block;
+    background: var(--yellow);
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    position: absolute; left: 0; top: 0; bottom: 0;
+    display: flex; align-items: center;
+    z-index: 2;
+  }
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker 60s linear infinite;
+    padding-left: 160px;
+  }
+  .ticker-track:hover { animation-play-state: paused; }
+  .ticker-item {
+    white-space: nowrap;
+    padding: 0 60px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+  }
+  .ticker-item.yellow { color: var(--yellow); }
+  .ticker-item.pink   { color: var(--pink); }
+  .ticker-item.sky    { color: var(--sky); }
+  .ticker-item.green  { color: var(--green); }
+  .ticker-item.white  { color: var(--white); }
+  .ticker-sep { color: var(--yellow); opacity: 0.4; }
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 70px 20px 50px;
+    background: linear-gradient(180deg, rgba(5,13,31,0) 0%, rgba(5,13,31,0.95) 100%);
+  }
+  .hero-date {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    color: var(--sky);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    animation: fadeUp 1s ease both;
+  }
+  .hero-title-cn {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 900;
+    color: var(--yellow);
+    text-shadow: 0 0 40px rgba(255,215,0,0.5), 0 4px 20px rgba(0,0,0,0.8);
+    line-height: 1.15;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+  .hero-title-en {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    color: var(--white);
+    opacity: 0.85;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    animation: fadeUp 1s 0.35s ease both;
+  }
+  .hero-sub {
+    margin-top: 18px;
+    font-size: 0.88rem;
+    color: var(--sky);
+    letter-spacing: 3px;
+    font-family: 'Oswald', sans-serif;
+    animation: fadeUp 1s 0.5s ease both;
+  }
+
+  /* ─── LEADERS SECTION ─── */
+  .leaders {
+    position: relative; z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0;
+    padding: 10px 20px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .leader-card {
+    position: relative;
+    flex: 1;
+    max-width: 340px;
+    cursor: pointer;
+    transition: transform 0.4s ease, filter 0.4s ease;
+  }
+  .leader-card:hover { transform: translateY(-12px) scale(1.02); }
+  .leader-card.trump { text-align: right; }
+  .leader-card.xi    { text-align: left; }
+  .leader-flag {
+    font-size: 2.8rem;
+    margin-bottom: 8px;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+  }
+  .leader-img-wrap {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 140px; height: 140px;
+    border: 3px solid var(--yellow);
+    box-shadow: 0 0 0 6px rgba(255,215,0,0.15), 0 10px 40px rgba(0,0,0,0.6);
+    transition: box-shadow 0.4s, border-color 0.4s;
+  }
+  .leader-card:hover .leader-img-wrap {
+    box-shadow: 0 0 0 8px rgba(255,215,0,0.35), 0 16px 60px rgba(0,0,0,0.7);
+    border-color: var(--yellow-glow);
+  }
+  .leader-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: contrast(1.05) saturate(1.1);
+    transition: transform 0.5s;
+  }
+  .leader-card:hover .leader-img-wrap img { transform: scale(1.08); }
+
+  /* Fallback avatar if images fail */
+  .leader-avatar {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem;
+  }
+
+  .leader-name {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 1.05rem;
+    color: var(--yellow);
+    margin-top: 10px;
+    display: block;
+  }
+  .leader-title {
+    font-size: 0.72rem;
+    color: var(--dim);
+    letter-spacing: 1px;
+    display: block;
+  }
+  .leader-dream {
+    font-size: 0.78rem;
+    color: var(--pink);
+    font-style: italic;
+    margin-top: 4px;
+< truncated lines 226-1039 >
+      <div class="tl-dot"></div>
+      <div class="tl-year">2026年下半 · Late 2026</div>
+      <div class="tl-text-cn">美國期中選舉：川普急需對華「戰果」拉抬民調</div>
+      <div class="tl-text-en">US midterm elections: Trump will need to show domestic wins from China dealings; Beijing will withhold major concessions to maximize leverage.</div>
+    </div>
+    <div class="tl-item future">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2027–2029 · 未來展望</div>
+      <div class="tl-text-cn">習近平鞏固台灣戰略窗口期；中美長期競爭格局持續</div>
+      <div class="tl-text-en">Xi eyes strategic window on Taiwan before post-Trump era returns to sustained competition. Structural rivalry between two superpowers remains fundamental — not resolvable by any single summit.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ QUOTES ═══════════ -->
+<section class="quote-section reveal">
+  <div class="quote-card">
+    <div class="quote-flag">🇨🇳</div>
+    <div class="quote-text">
+      「世界兩大經濟體之間出現摩擦屬正常現象。中國的發展與讓美國再次偉大的目標並不矛盾。」
+    </div>
+    <div class="quote-attr">習近平 · 釜山峰會 · 2025年10月</div>
+  </div>
+  <div class="quote-card">
+    <div class="quote-flag">🇺🇸</div>
+    <div class="quote-text">
+      「Outside observers should have low expectations for the upcoming summit. The relationship is defined more by an absence of friction than any affirmative agenda.」
+    </div>
+    <div class="quote-attr">Jonathan Czin · Brookings Institution · 2026年5月</div>
+  </div>
+  <div class="quote-card">
+    <div class="quote-flag">🇩🇪</div>
+    <div class="quote-text">
+      「習近平握有決定性王牌——稀土準壟斷。伊朗戰爭使美國對中國稀土的依賴進一步加深，北京的籌碼更形強大。」
+    </div>
+    <div class="quote-attr">喬格·吳特克 · DGA-Albright Stonebridge · taz訪談 · 2026年</div>
+  </div>
+  <div class="quote-card">
+    <div class="quote-flag">🌐</div>
+    <div class="quote-text">
+      「When Trump lands in Beijing, he will represent the United States from a position of self-inflicted weakness — the Iran War is a win for China.」
+    </div>
+    <div class="quote-attr">Andrew P. Miller & Michael Clark · Foreign Affairs · 2026年</div>
+  </div>
+</section>
+
+<!-- ═══════════ CONCLUSION ═══════════ -->
+<section class="conclusion reveal">
+  <div class="conclusion-box">
+    <div class="conclusion-icon">📉</div>
+    <div class="conclusion-headline-en">Limited Chances of Major Breakthroughs</div>
+    <div class="conclusion-headline-cn">重大突破機率有限——各方分析師的一致結論</div>
+    <div class="conclusion-body">
+      根據法蘭克福匯報、德國之聲、布魯金斯學會、路透社、英國《衛報》、《外交政策》等各主流外媒及智庫的一致研判：此次川習北京峰會在外交形式上具有歷史意義，但實質突破的可能性極為有限。
+      <br><br>
+      兩國關係的根本性結構矛盾——美國謀求維持全球主導、中國追求重塑國際秩序——無法在一次峰會中化解。官僚層面準備不足、雙方都不急於讓步、且各自計算留待後續峰會再談，均制約了此次峰會的成果上限。
+      <br><br>
+      預期成果聚焦於：穩定而非突破。波音採購、大豆協議、貿易委員會機制或許達成；但台灣、AI晶片出口管制、俄烏立場等核心分歧，仍將以「戰略性迴避」方式存在於公報之外。
+      <br><br>
+      <strong style="color:var(--yellow);">The summit matters more for what it avoids (a breakdown) than what it achieves.</strong> Both leaders need a stable relationship — but neither can afford to be seen making major concessions at home.
+    </div>
+    <div class="conclusion-points">
+      <span class="c-point">🕊️ 穩定關係 Stabilisation</span>
+      <span class="c-point">📦 波音採購 Boeing Deals</span>
+      <span class="c-point">🌾 大豆協議 Soybean Pact</span>
+      <span class="c-point">⚖️ 關稅延長 Tariff Truce Extension</span>
+      <span class="c-point">🚫 台灣缺席 Taiwan Sidelined?</span>
+      <span class="c-point">🤖 AI對話啟動 AI Dialogue Begins</span>
+      <span class="c-point">💎 稀土暫停延續 Rare Earth Pause</span>
+      <span class="c-point">🇺🇦 俄烏沉默 Ukraine Silence</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SOURCES ═══════════ -->
+<div class="sources-bar reveal">
+  <div class="sources-label">📰 資料來源 · Sources</div>
+  <div class="sources-list">
+    <span class="source-pill">法蘭克福匯報 FAZ</span>
+    <span class="source-pill">德國之聲 Deutsche Welle</span>
+    <span class="source-pill">Brookings Institution</span>
+    <span class="source-pill">Reuters</span>
+    <span class="source-pill">Foreign Affairs</span>
+    <span class="source-pill">The Guardian</span>
+    <span class="source-pill">Washington Post</span>
+    <span class="source-pill">South China Morning Post</span>
+    <span class="source-pill">Cicero Online</span>
+    <span class="source-pill">Carnegie Endowment</span>
+    <span class="source-pill">Invezz / TradingView DE</span>
+    <span class="source-pill">聯合新聞網 UDN</span>
+    <span class="source-pill">關鍵評論網 TNL</span>
+    <span class="source-pill">維基百科 Wikipedia ZH</span>
+    <span class="source-pill">taz / Jörg Wuttke</span>
+    <span class="source-pill">Eurasian Review</span>
+  </div>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  TRUMP–XI BEIJING SUMMIT · 川習北京峰會 · MAY 14–15, 2026 ·
+  COMPILED FROM INTERNATIONAL MEDIA ANALYSIS · FOR INFORMATIONAL PURPOSE ONLY
+</footer>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+  /* ── Toggle topic cards ── */
+  function toggleCard(card) {
+    const isOpen = card.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('open'));
+    // Open clicked if was closed
+    if (!isOpen) card.classList.add('open');
+  }
+
+  /* ── Leader info panel ── */
+  const leaderData = {
+    trump: {
+      flag: '🇺🇸',
+      name: '唐納·川普 Donald Trump',
+      title: '美利堅合眾國第47任總統',
+      color: 'var(--yellow)',
+      items: [
+        { icon: '💰', label: '核心訴求', text: '貿易逆差縮小、製造業回流、期中選舉前的「中國讓步」成果' },
+        { icon: '🌟', label: 'MAGA願景', text: '讓美國再次偉大：強勢談判、關稅武器、雙邊交易取代多邊主義' },
+        { icon: '🏭', label: '供應鏈', text: '降低對中國稀土、藥品原料、關鍵礦物的依賴；半導體自主生產' },
+        { icon: '⚠️', label: '軟肋', text: '伊朗戰爭拖累支持率（36%），汽油漲價引發民怨，以弱勢姿態入京' },
+        { icon: '🎯', label: '談判策略', text: '不可預測性作為籌碼，追求「大交易感」，可能在台灣措辭上讓步換取貿易利益' },
+      ]
+    },
+    xi: {
+      flag: '🇨🇳',
+      name: '習近平 Xi Jinping',
+      title: '中華人民共和國國家主席、中共中央總書記',
+      color: 'var(--pink)',
+      items: [
+        { icon: '🌏', label: '強國大夢', text: '「中華民族偉大復興」——2049年前成為現代化強國，重塑國際秩序' },
+        { icon: '🗺️', label: '台灣紅線', text: '統一台灣為歷史使命，要求美國從「不支持」升格為「反對」台獨' },
+        { icon: '💎', label: '談判王牌', text: '稀土準壟斷、伊朗調停、「一帶一路」、人民幣國際化，多重籌碼在手' },
+        { icon: '🕐', label: '時間窗口', text: '視川普任期為戰略機遇期：讓美國在對華政策上保持模糊，不急讓步' },
+        { icon: '🌐', label: '外交佈局', text: '強化與歐盟、東南亞、全球南方關係，多元化對沖美國壓力' },
+      ]
+    }
+  };
+
+  function highlightLeader(key) {
+    const d = leaderData[key];
+    const box = document.getElementById('leader-info');
+    const content = document.getElementById('leader-info-content');
+    content.innerHTML = `
+      <div style="margin-bottom:16px;">
+        <span style="font-size:2rem">${d.flag}</span>
+        <span style="font-family:'Noto Serif TC',serif;font-weight:900;font-size:1.1rem;color:${d.color};margin-left:10px;">${d.name}</span>
+        <div style="font-size:0.72rem;color:var(--dim);margin-top:4px;letter-spacing:1px;">${d.title}</div>
+      </div>
+      ${d.items.map(item => `
+        <div style="display:flex;gap:14px;margin-bottom:14px;align-items:flex-start;">
+          <span style="font-size:1.3rem;flex-shrink:0;">${item.icon}</span>
+          <div>
+            <div style="font-size:0.68rem;letter-spacing:3px;font-family:'Oswald',sans-serif;color:${d.color};margin-bottom:3px;">${item.label}</div>
+            <div style="font-size:0.85rem;color:rgba(240,244,255,0.85);line-height:1.65;">${item.text}</div>
+          </div>
+        </div>
+      `).join('')}
+    `;
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* ── Scroll reveal ── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ── Animate tension bars on scroll ── */
+  const tensionSection = document.querySelector('.tension-section');
+  let barsAnimated = false;
+  const tensionObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !barsAnimated) {
+      barsAnimated = true;
+      document.querySelectorAll('.tension-bar').forEach(bar => {
+        const w = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => { bar.style.width = w; }, 300);
+      });
+    }
+  }, { threshold: 0.3 });
+  if (tensionSection) tensionObserver.observe(tensionSection);
+
+  /* ── Timeline item click ── */
+  document.querySelectorAll('.tl-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const detail = this.querySelector('.tl-text-en');
+      if (detail) {
+        detail.style.color = detail.style.color === 'var(--white)' ? 'var(--dim)' : 'var(--white)';
+      }
+    });
+  });
+
+  /* ── Keyboard accessibility for cards ── */
+  document.querySelectorAll('.topic-card').forEach(card => {
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCard(card); }
+    });
+  });
+
+  /* ── Parallax hero ── */
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      const scrolled = window.pageYOffset;
+      hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+    }
+  }, { passive: true });
+</script>
+</body>
+</html>
